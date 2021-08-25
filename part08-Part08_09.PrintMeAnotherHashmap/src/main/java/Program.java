@@ -7,4 +7,17 @@ public class Program {
         // Test your program here!
     }
 
+    public static void printValues(HashMap<String, Book> hashMap){
+        for (Book book : hashMap.values()) {
+            System.out.println(book.toString());
+        }
+    }
+
+    public static void printValueIfNameContains(HashMap<String, Book> hashMap, String text){
+        for (Book book : hashMap.values()) {
+            if (book.getName().contains(text)){
+                System.out.println(book.toString());
+            }
+        }
+    }
 }
