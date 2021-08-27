@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5e8aea2-5c5d-48f8-81c1-ec3edd4f722e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../part08-Part08_08.PrintMeMyHashmap/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../part08-Part08_08.PrintMeMyHashmap/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../part08-Part08_08.PrintMeMyHashmap/src/main/java/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part08-Part08_08.PrintMeMyHashmap/src/main/java/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../part08-Part08_09.PrintMeAnotherHashmap/src/main/java/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/../part08-Part08_09.PrintMeAnotherHashmap/src/main/java/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -29,6 +34,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
+    <configuration name="IOUTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Part08_10.IOweYou" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="IOUTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -40,6 +54,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IOUTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -50,6 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1629919861646</updated>
       <workItem from="1629919864503" duration="683000" />
+      <workItem from="1629995356829" duration="1421000" />
+      <workItem from="1630007932875" duration="80000" />
     </task>
     <servers />
   </component>

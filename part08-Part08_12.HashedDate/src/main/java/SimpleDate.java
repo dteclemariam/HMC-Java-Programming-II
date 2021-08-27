@@ -51,4 +51,24 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
+    @Override
+    public boolean equals(Object compared){
+        if (this == compared) return true;
+        if (compared == null || this.getClass() != compared.getClass()) return false;
+
+        SimpleDate comparedSimpleDate = (SimpleDate) compared;
+
+        if (this.day != comparedSimpleDate.day) return false;
+        if (this.month != comparedSimpleDate.month) return false;
+        return this.year == comparedSimpleDate.year;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = this.day;
+        result = 31 * result + month;
+        result = 31 * result + year;
+        return result;
+    }
+
 }
