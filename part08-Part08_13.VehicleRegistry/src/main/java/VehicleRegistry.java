@@ -19,18 +19,12 @@ public class VehicleRegistry {
     }
 
     public boolean remove(LicensePlate licensePlate){
-        boolean contains = registry.containsKey(licensePlate);
-        registry.remove(licensePlate);
-        return contains;
+        if (!registry.containsKey(licensePlate)){
+            return false;
+        }
 
-        //Another solution could have been the code below, as the remove method returns null if key was not found
-        // But as it returns the value if the key is found & the value could be null it's better to use the above code
-//        if (registry.remove(licensePlate) == null){
-//            return false;
-//        }else{
-//            registry.remove(licensePlate);
-//            return true;
-//        }
+        registry.remove(licensePlate);
+        return true;
     }
 
     public void printLicensePlates(){
