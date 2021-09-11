@@ -11,7 +11,7 @@ public class MainProgram {
         map.put("Test2", "Test2");
         map.put("Test3", "Test3");
         System.out.println("Size of map: " + returnSize(map));
-      
+
     }
 
     // Implement here a method returnSize, which takes a Map-object as a parameter 
