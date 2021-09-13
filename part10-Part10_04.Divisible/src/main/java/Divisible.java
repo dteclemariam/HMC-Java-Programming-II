@@ -15,11 +15,13 @@ public class Divisible {
         ArrayList<Integer> divisible = divisible(numbers);
 
         divisible.stream()
-                .forEach(luku -> System.out.println(luku));
+                .forEach(numb -> System.out.println(numb));
     }
 
     public static ArrayList<Integer> divisible(ArrayList<Integer> numbers) {
-        return new ArrayList<>();
+        return numbers.stream()
+                .filter(numb -> numb % 2 == 0 || numb % 3 == 0 || numb % 5 ==0)
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
