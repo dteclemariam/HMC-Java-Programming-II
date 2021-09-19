@@ -29,4 +29,11 @@ public class Book {
         return pageCount;
     }
 
+    //Self made to.String
+
+    @Override
+    public String toString(){
+        return name + ", publishing year: " + publishingYear + ", pages: " + pageCount + ", author: " + author;
+    }
+
 }
