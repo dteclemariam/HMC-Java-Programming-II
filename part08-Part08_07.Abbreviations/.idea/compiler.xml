@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="part08-Part08_07.Abbreviations" />
         <module name="Part8_07.Abbreviations" />
       </profile>
     </annotationProcessing>
