@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="part10-Part10_13.LiteracyComparison" />
-        <module name="Part10_13.LiteracyComparison" />
+        <module name="Part10_14.Literature" />
       </profile>
     </annotationProcessing>
   </component>

@@ -1,3 +1,4 @@
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,14 @@ public class FileReader {
                 double literacyPercentage = Double.valueOf(sanitizeInput(parts[5]));
                 dataSetList.add(new DataSet(country, year, gender, literacyPercentage));
             }
+
+            //Solution reading using streams through Files.lines
+//            Files.lines(Paths.get(file))
+//                    .map(d -> d.split(","))
+//                    .map(d -> new DataSet(d[3].trim(), Integer.parseInt(d[4].trim()),
+//                            d[2].replace("(%)","").trim(), Double.parseDouble(d[5].trim())))
+//                    .forEach(dataSet -> dataSetList.add(dataSet));
+
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());
         }
