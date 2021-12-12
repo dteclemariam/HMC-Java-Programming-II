@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Part11_07.BiggerClassDiagram" />
-        <module name="part11-Part11_07.BiggerClassDiagram" />
+        <module name="Part11_08.FirstPackages" />
+        <module name="part11-Part11_08.FirstPackages" />
       </profile>
     </annotationProcessing>
   </component>
