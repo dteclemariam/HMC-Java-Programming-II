@@ -67,6 +67,19 @@ public class SaveableDictionary {
         }
 
         return true;
+
+        //Using Files.lines
+//        try {
+//            Files.lines(Paths.get(this.file))
+//                    .map(l -> l.split(":"))
+//                    .forEach(parts -> {
+//                        this.words.put(parts[0], parts[1]);
+//                        this.words.put(parts[1], parts[0]);
+//                    });
+//            return true;
+//        } catch (IOException ex) {
+//            return false;
+//        }
     }
 
     public boolean save() {
@@ -74,18 +87,18 @@ public class SaveableDictionary {
             PrintWriter writer = new PrintWriter(file);
             String formatedText = "";
 
-            //Example using for-loop
+            //Wanted to try Using Iterator and the key-value set(entry) in the map
+            Iterator<Map.Entry<String, String>> entryIterator = dictionary.entrySet().iterator();
+            while (entryIterator.hasNext()) {
+                formatedText = formatEntrySetForWriter(entryIterator.next());
+                writer.println(formatedText);
+
+                //Example using for-loop
 //            String key = "";
 //            for (String currentKey: dictionary.keySet()) {
 //                key = currentKey;
 //                writer.println(currentKey + ":" + dictionary.get(key));
 //            }
-
-            //Using Iterator and the key-value set in the map
-            Iterator<Map.Entry<String, String>> entryIterator = dictionary.entrySet().iterator();
-            while (entryIterator.hasNext()) {
-                formatedText = formatEntrySetForWriter(entryIterator.next());
-                writer.println(formatedText);
             }
             writer.close();
         } catch (Exception e) {
