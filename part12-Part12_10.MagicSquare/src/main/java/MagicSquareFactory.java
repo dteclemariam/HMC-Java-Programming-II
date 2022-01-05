@@ -18,8 +18,9 @@ public class MagicSquareFactory {
         int constantDifference = 5;
 
         //Starts with the central box of the first row
-        int startingRowIndex = 0;
         int startingColumnIndex = size/2;
+        int startingRowIndex = 0;
+
 
         //Places the first value
         int [] nextPositionRowColumn = {startingColumnIndex, startingRowIndex};
@@ -40,12 +41,14 @@ public class MagicSquareFactory {
     private int [] getNextPosition(int [] currentPosition, MagicSquare square){
         //nextPosition where the first index (0) is row and the second[1] is column
         int [] nextPosition = new int [2];
-        int indexOfRow = currentPosition[0] - 1;
-        int indexOfColumn = currentPosition[1] + 1;
+        int indexOfColumn = currentPosition[0] + 1;
+        int indexOfRow = currentPosition[1] - 1;
+
 
         //Runs as long as the method readValue of MagicSquare returns 0 (value has not been placed in column)
         //or returns -1 index if column or row is out of bound.
-        while (square.readValue(indexOfRow, indexOfColumn) < 0) {
+        // TODO: 05.01.2022 somehow overwrites if there is already a value there
+        while (square.readValue(indexOfColumn, indexOfRow) < 0) {
 
             //Changes the index of the row to the bottom of the 2d array if it tries to access an index > 0
             if (indexOfRow < 0){
@@ -59,14 +62,18 @@ public class MagicSquareFactory {
             }
 
             //If the column already has a value, move one column down
-            if (square.readValue(indexOfRow, indexOfColumn) > 0){
+            if (square.readValue(indexOfColumn, indexOfRow) > 0){
                 indexOfRow--;
+            }
+
+            if (square.readValue(indexOfColumn, indexOfRow) == 0){
+                break;
             }
 
         }
 
-        nextPosition[0] = indexOfRow;
-        nextPosition[1] = indexOfColumn;
+        nextPosition[0] = indexOfColumn;
+        nextPosition[1] = indexOfRow;
         return nextPosition;
 
     }
