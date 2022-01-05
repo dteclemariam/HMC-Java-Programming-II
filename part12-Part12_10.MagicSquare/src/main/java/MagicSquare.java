@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class MagicSquare {
@@ -17,15 +18,55 @@ public class MagicSquare {
 
     // implement these three methods
     public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumOfRows = new ArrayList<>();
+        for (int row = 0; row < this.square.length; row++) {
+            int sum = 0;
+            //Goes through every column of the row and adds the value to the sum
+            for (int column = 0; column < this.square[row].length; column++) {
+                int value = this.square[row][column];
+                sum += value;
+            }
+            //When done looping through a row, adds the sum to the arrayList
+            sumOfRows.add(sum);
+        }
+        return sumOfRows;
     }
 
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumOfColumns= new ArrayList<>();
+
+        //Runs for a total of how many columns a row in the 2D-Array has
+        for (int column = 0; column < this.square[0].length; column++) {
+            int sumOfColumn = 0;
+            //Goes through each row and adds the value of the index of column "x" to sum of column
+            for (int row = 0; row < this.square.length; row++) {
+                sumOfColumn += square[row][column];
+            }
+            //Adds the sum of the columns to the ArrayList
+            sumOfColumns.add(sumOfColumn);
+        }
+        return sumOfColumns;
     }
 
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        ArrayList<Integer> sumsOfDiagonals = new ArrayList<>();
+        int sumTopLeftToBottomRight = 0;
+        int sumBottomLeftToTopright = 0;
+
+        for (int row = 0; row < square.length; row++) {
+            //Each iteration add the value diagonally from top left to bottom right of square
+            // square[row][row] 0,0 - 1,1 - 2,2
+            sumTopLeftToBottomRight += square[row][row];
+            //Each iteration add the value diagonally from bottom left to top right of square
+            // square [row][(length - 1) - row]0,lastindex of row - 1,(lastindex of row-1) - 2,(lastindex of row-2)
+            sumBottomLeftToTopright +=  square[row][(square.length - 1) - row];
+
+        }
+
+        sumsOfDiagonals.add(sumTopLeftToBottomRight);
+        sumsOfDiagonals.add(sumBottomLeftToTopright);
+
+        return sumsOfDiagonals;
     }
 
     // ready-made helper methods -- don't touch these
