@@ -4,85 +4,50 @@ public class MagicSquareFactory {
 
     public MagicSquare createMagicSquare(int size) {
 
-        MagicSquare square = new MagicSquare(size);
+        MagicSquare magicSquare = new MagicSquare(size);
         // implement the creation of a magic square with the Siamese method algorithm here
-        addValues(square, size);
-        return square;
-    }
 
-    private void addValues(MagicSquare square, int size){
-        //helper variables
-        int totalColumns = size * size;
-        int filledColumns = 0;
-        int currentValue = 5;
-        int constantDifference = 5;
+                //Starting positions
+        //starting at the first row
+        int currentRow = 0;
+        //Starting at middle column
+        int currentColumn = size / 2;
+        //placing the first value in the first box
+        magicSquare.placeValue(currentColumn,  currentRow, 1);
 
-        //Starts with the central box of the first row
-        int startingColumnIndex = size/2;
-        int startingRowIndex = 0;
+        for (int i = 2; i <= size * size; i++) {
+            //Next row is row - 1
+            int nextRow = currentRow - 1;
 
-
-        //Places the first value
-        int [] nextPositionRowColumn = {startingColumnIndex, startingRowIndex};
-        square.placeValue(nextPositionRowColumn[0], nextPositionRowColumn[1], currentValue);
-
-        //Runs while filled columns(with values) is smaller than total columns
-        while (filledColumns < totalColumns){
-            System.out.println(square);
-            //gets next position
-            nextPositionRowColumn = getNextPosition(nextPositionRowColumn, square);
-            //adds value to new position
-            currentValue += constantDifference;
-            square.placeValue(nextPositionRowColumn[0], nextPositionRowColumn[1], currentValue);
-            filledColumns++;
-        }
-    }
-
-    private int [] getNextPosition(int [] currentPosition, MagicSquare square){
-        //nextPosition where the first index (0) is row and the second[1] is column
-        int [] nextPosition = new int [2];
-        int indexOfColumn = currentPosition[0] + 1;
-        int indexOfRow = currentPosition[1] - 1;
-
-
-        //Runs as long as the method readValue of MagicSquare returns 0 (value has not been placed in column)
-        //or returns -1 index if column or row is out of bound.
-        // TODO: 05.01.2022 somehow overwrites if there is already a value there
-        while (square.readValue(indexOfColumn, indexOfRow) < 0) {
-
-            //Changes the index of the row to the bottom of the 2d array if it tries to access an index > 0
-            if (indexOfRow < 0){
-                indexOfRow = square.getHeight() - 1;
+            //If row is out of magic square (out of index) we jump to the bottom edge
+            if (nextRow < 0){
+                nextRow = magicSquare.getHeight() - 1;
             }
 
-            //Changes the index of the column to the most left (0) of the 2d array
-            //if it tries to access an index the same length or greater than the width of the array
-            if (indexOfColumn >= square.getWidth()){
-                indexOfColumn = 0;
+            //If column is out of magic square (out of index) we jump to the left edge
+            int nextColumn = currentColumn + 1;
+            if (nextColumn >= magicSquare.getWidth()){
+                nextColumn = 0;
             }
 
-            //If the column already has a value, move one column down
-            if (square.readValue(indexOfColumn, indexOfRow) > 0){
-                indexOfRow--;
+            //Checks if  value of next current column and value is empty
+            //If not empty (0) jumps one row down on the square
+            int currentBoxValue = magicSquare.readValue(nextColumn, nextRow);
+            if (currentBoxValue != 0){
+                nextRow = currentRow + 1;
+                nextColumn = currentColumn;
             }
 
-            if (square.readValue(indexOfColumn, indexOfRow) == 0){
-                break;
-            }
-
+            //places value in the column-row and increments with number to add
+            magicSquare.placeValue(nextColumn, nextRow, i);
+            currentRow = nextRow;
+            currentColumn = nextColumn;
         }
 
-        nextPosition[0] = indexOfColumn;
-        nextPosition[1] = indexOfRow;
-        return nextPosition;
-
+        return magicSquare;
     }
 
-    //Return a random number between 1-100.
-    private int getRandomNumber(){
-        Random random = new Random();
-        return random.nextInt(100) + 1;
-    }
+
 
 
 
